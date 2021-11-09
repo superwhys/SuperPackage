@@ -7,6 +7,7 @@
 # @Date    ：2021/9/3 18:04 
 # @Summary : this is the summary 
 
-from MyPackage.consul_util import *
-from MyPackage.FeishuSend import *
-from MyPackage.mongo_utils import *
+from SuperPackage.consul_util import *
+from SuperPackage.FeishuSend import *
+from SuperPackage.mongo_utils import *
+from SuperPackage.superRegex import *
