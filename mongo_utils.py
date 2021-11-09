@@ -56,7 +56,7 @@ def check_index(table: Collection, *args):
 def create_index(table: Collection, index_lst: list, unique: bool, sort=1):
     if not check_index(table, *index_lst):
         index_config = [(name, sort) for name in index_lst]
-        ok = table.create_index(index_config, unique=unique)
+        ok = table.create_index(index_config, unique=unique, background=True)
         logger.info(f'index create success, index name is {ok}')
     else:
         logger.error(f'index_name: {",".join(index_lst)} has been create!')
@@ -67,4 +67,4 @@ if __name__ == '__main__':
     # print(create_mongo_object_id(t))
     con = MongoClient("localhost:27017")
     table = con['source_data']['pdd_url']
-    create_index(table=table, index_lst=["index_key", "tag"], unique=False, sort=1)
+    create_index(table=table, index_lst=["tag"], unique=False, sort=1)
